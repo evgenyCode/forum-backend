@@ -1,26 +1,14 @@
+// routes/questions.js
 import express from "express";
-import  auth from '../middleware/auth.js'
-import { ADD_QUESTION, 
-         GET_QUESTIONS,
-        //  GET_LOCATION_BY_ID,
-         DELETE_QUESTION,
-    
-          // DELETE_ANSWER
-        //  GET_RANDOM_LOCATION
-          } from "../controllers/questions.js";
-// import auth from '../middleware/auth.js'          
-
+import auth from '../middleware/auth.js';
+import { ADD_QUESTION, GET_QUESTIONS, DELETE_QUESTION, GET_QUESTION_BY_ID, GET_QUESTIONS_AND_ANSWERS } from "../controllers/questions.js";
 
 const router = express.Router();
 
-// router.get("/locations/random", GET_RANDOM_LOCATION); 
-router.post('/questions',auth,  ADD_QUESTION);
+router.post('/questions', auth, ADD_QUESTION);
 router.get('/questions', GET_QUESTIONS);
-// router.get('/locations/:id', GET_LOCATION_BY_ID);
-router.delete('/questions/:id',auth, DELETE_QUESTION);
+router.get('/questionsAnswers', GET_QUESTIONS_AND_ANSWERS);
+router.get('/questions/:id', GET_QUESTION_BY_ID);  
+router.delete('/question/:id', auth, DELETE_QUESTION);
 
-// router.delete('/answer/:id', DELETE_ANSWER);
-
-
-
-  export default router;
+export default router;

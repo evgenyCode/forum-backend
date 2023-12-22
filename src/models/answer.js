@@ -17,8 +17,12 @@ const answerSchema = new mongoose.Schema({
   question_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Question', // Nuoroda į klausimų modelį
-    required: false,
+    required: true,
   },
 });
 
 export default mongoose.model('Answer', answerSchema);
+
+
+
+
